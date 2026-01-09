@@ -3,109 +3,269 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Blue Elephant | الفيل الأزرق</title>
+    <title>Blue Elephant | الفيل الأزرق للتوريدات والحلول التجارية</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
+        :root {
+            --primary-color: #0d47a1; /* أزرق داكن فخم */
+            --secondary-color: #42a5f5; /* أزرق فاتح */
+            --accent-color: #ff9800; /* برتقالي لكسر اللون */
+            --text-color: #333;
+            --bg-light: #f4f7f6;
+        }
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: #f4f7f6;
             margin: 0;
             padding: 0;
-            text-align: center;
-            color: #333;
+            background-color: var(--bg-light);
+            color: var(--text-color);
+            overflow-x: hidden;
         }
-        .container {
-            max-width: 800px;
-            margin: 50px auto;
+        
+        /* الهيدر واللوجو */
+        header {
             background: white;
-            padding: 40px;
-            border-radius: 15px;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+            padding: 15px 5%;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
         }
-        img.logo {
-            max-width: 200px;
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        .brand img {
+            width: 60px; /* حجم اللوجو المصغر في الهيدر */
             height: auto;
-            margin-bottom: 20px;
         }
-        h1 {
-            color: #2c3e50;
-            font-size: 2.5em;
-            margin-bottom: 10px;
+        .brand h1 {
+            font-size: 1.2rem;
+            color: var(--primary-color);
+            margin: 0;
         }
-        h2 {
-            color: #3498db;
-            font-weight: normal;
-            margin-top: 0;
+
+        /* السوشيال ميديا في الهيدر */
+        .social-icons a {
+            color: var(--primary-color);
+            font-size: 1.5rem;
+            margin-left: 15px;
+            transition: 0.3s;
         }
-        p.description {
-            font-size: 1.2em;
-            line-height: 1.6;
-            color: #666;
-            margin-bottom: 40px;
+        .social-icons a:hover {
+            color: var(--secondary-color);
+            transform: translateY(-3px); /* حركة خفيفة للأعلى */
         }
-        .contact-section {
-            background-color: #e3f2fd;
+
+        /* الجزء الرئيسي (Hero Section) */
+        .hero {
+            background: linear-gradient(135deg, var(--primary-color), #1565c0);
+            color: white;
+            text-align: center;
+            padding: 80px 20px;
+            position: relative;
+        }
+        .hero img.main-logo {
+            width: 180px;
+            background: white;
+            border-radius: 50%;
             padding: 20px;
-            border-radius: 10px;
-            border: 1px solid #bbdefb;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            margin-bottom: 20px;
+            animation: fadeInDown 1s ease-out;
         }
-        .phone-number {
-            font-size: 1.5em;
-            font-weight: bold;
-            color: #2c3e50;
-            direction: ltr;
-            display: block;
-            margin: 10px 0;
+        .hero h2 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            animation: fadeInUp 1s ease-out 0.3s forwards;
+            opacity: 0;
         }
-        .whatsapp-btn {
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 600px;
+            margin: 0 auto 30px;
+            opacity: 0.9;
+            animation: fadeInUp 1s ease-out 0.6s forwards;
+            opacity: 0;
+        }
+
+        /* الأزرار */
+        .btn {
             display: inline-block;
+            padding: 12px 30px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: 0.3s;
+            margin: 10px;
+        }
+        .btn-whatsapp {
             background-color: #25D366;
             color: white;
-            padding: 12px 25px;
-            text-decoration: none;
-            border-radius: 50px;
-            font-weight: bold;
-            font-size: 1.1em;
-            transition: background 0.3s;
-            margin-top: 10px;
+            box-shadow: 0 4px 15px rgba(37, 211, 102, 0.4);
         }
-        .whatsapp-btn:hover {
+        .btn-whatsapp:hover {
             background-color: #128C7E;
+            transform: scale(1.05);
         }
+        .btn-linkedin {
+            background-color: white;
+            color: #0077b5;
+        }
+        .btn-linkedin:hover {
+            background-color: #f0f0f0;
+        }
+
+        /* قسم الخدمات */
+        .services {
+            padding: 60px 10%;
+            text-align: center;
+        }
+        .services h3 {
+            font-size: 2rem;
+            color: var(--primary-color);
+            margin-bottom: 40px;
+            position: relative;
+            display: inline-block;
+        }
+        .services h3::after {
+            content: '';
+            display: block;
+            width: 50px;
+            height: 3px;
+            background: var(--accent-color);
+            margin: 10px auto 0;
+        }
+        
+        .cards-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+        .card {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            transition: 0.3s;
+            border-top: 4px solid var(--secondary-color);
+        }
+        .card:hover {
+            transform: translateY(-10px); /* الكارت يطلع لفوق لما تقف عليه */
+            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+        }
+        .card i {
+            font-size: 3rem;
+            color: var(--secondary-color);
+            margin-bottom: 20px;
+        }
+        .card h4 {
+            font-size: 1.3rem;
+            margin-bottom: 10px;
+            color: var(--primary-color);
+        }
+        .card p {
+            font-size: 0.95rem;
+            color: #666;
+            line-height: 1.6;
+        }
+
+        /* الفوتر */
         footer {
-            margin-top: 30px;
-            font-size: 0.9em;
-            color: #999;
+            background: var(--primary-color);
+            color: white;
+            text-align: center;
+            padding: 20px;
+            margin-top: 50px;
+        }
+        .footer-contacts {
+            margin-bottom: 15px;
+            font-size: 1.1rem;
+            direction: ltr;
+        }
+        
+        /* أنيميشن */
+        @keyframes fadeInDown {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* للموبايل */
+        @media (max-width: 768px) {
+            header { flex-direction: column; gap: 10px; }
+            .hero h2 { font-size: 1.8rem; }
         }
     </style>
 </head>
 <body>
 
-    <div class="container">
-        <img src="logo.png" alt="شعار شركة الفيل الأزرق Blue Elephant" class="logo">
+    <header>
+        <div class="brand">
+            <img src="logo.png" alt="Blue Elephant Logo">
+            <h1>Blue Elephant</h1>
+        </div>
+        <div class="social-icons">
+            <a href="#" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a>
+            <a href="#" target="_blank" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+            <a href="https://wa.me/201113893888" target="_blank" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+        </div>
+    </header>
 
-        <h1>شركة الفيل الأزرق</h1>
-        <h2>Blue Elephant</h2>
-
-        <p class="description">
-            شريكك الموثوق في التوريدات العمومية والاستيراد والتصدير.<br>
-            نقدم حلولاً تجارية متكاملة تلبي احتياجاتكم باحترافية.
-        </p>
-
-        <div class="contact-section">
-            <h3>تواصل معنا</h3>
-            <p>نحن هنا للرد على استفساراتكم</p>
-            
-            <span class="phone-number">+20 111 389 3888</span>
-
-            <a href="https://wa.me/201113893888" class="whatsapp-btn" target="_blank">
-                تواصل معنا عبر الواتساب 💬
+    <section class="hero">
+        <img src="logo.png" alt="Blue Elephant Main Logo" class="main-logo">
+        <h2>شركة الفيل الأزرق</h2>
+        <p>شريكك الاستراتيجي في التوريدات العمومية، الاستيراد والتصدير، والحلول التجارية المتكاملة.</p>
+        
+        <div>
+            <a href="https://wa.me/201113893888" class="btn btn-whatsapp">
+                <i class="fab fa-whatsapp"></i> تواصل معنا
+            </a>
+            <a href="#" class="btn btn-linkedin">
+                <i class="fab fa-linkedin"></i> تابعنا على لينكد إن
             </a>
         </div>
+    </section>
 
-        <footer>
-            &copy; 2026 Blue Elephant. All rights reserved.
-        </footer>
-    </div>
+    <section class="services">
+        <h3>مجالات تخصصنا</h3>
+        <div class="cards-container">
+            <div class="card">
+                <i class="fas fa-truck-loading"></i>
+                <h4>التوريدات العمومية</h4>
+                <p>نقدم حلول توريد شاملة للمؤسسات والشركات بأعلى معايير الجودة والالتزام بالمواعيد.</p>
+            </div>
+            <div class="card">
+                <i class="fas fa-globe-africa"></i>
+                <h4>الاستيراد والتصدير</h4>
+                <p>نربط الأسواق المحلية بالعالمية من خلال شبكة علاقات تجارية قوية وخبرة في اللوجستيات.</p>
+            </div>
+            <div class="card">
+                <i class="fas fa-handshake"></i>
+                <h4>التوكيلات التجارية</h4>
+                <p>تمثيل الشركات والمنتجات العالمية في السوق المصري بخطط تسويقية وتوزيعية مدروسة.</p>
+            </div>
+            <div class="card">
+                <i class="fas fa-briefcase"></i>
+                <h4>حلول الأعمال</h4>
+                <p>استشارات وتجهيزات متكاملة لضمان سير أعمالكم بكفاءة واحترافية.</p>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-contacts">
+            <i class="fas fa-phone"></i> +20 111 389 3888
+        </div>
+        <p>&copy; 2026 Blue Elephant Company. All Rights Reserved.</p>
+    </footer>
 
 </body>
 </html>
