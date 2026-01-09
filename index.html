@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blue Elephant | الفيل الأزرق</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --primary-color: #0d47a1; /* أزرق ملكي */
+            --secondary-color: #1565c0;
+            --bg-color: #f5f5f5;
+            --text-color: #333;
+        }
+
+        body {
+            font-family: 'Cairo', sans-serif;
+            background-color: var(--bg-color);
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            color: var(--text-color);
+        }
+
+        .container {
+            background: white;
+            width: 90%;
+            max-width: 400px;
+            border-radius: 20px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+            text-align: center;
+            padding: 40px 20px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* خط أزرق جمالي في الأعلى */
+        .container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 8px;
+            background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+        }
+
+        .logo-box {
+            width: 120px;
+            height: 120px;
+            margin: 0 auto 20px;
+            border-radius: 50%;
+            border: 3px solid var(--primary-color);
+            padding: 5px;
+            background: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .logo-box img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 50%;
+        }
+
+        h1 {
+            font-size: 24px;
+            color: var(--primary-color);
+            margin-bottom: 5px;
+        }
+
+        .subtitle {
+            font-size: 14px;
+            color: #666;
+            margin-bottom: 15px;
+        }
+
+        .cr-number {
+            background: #e3f2fd;
+            color: var(--primary-color);
+            padding: 5px 15px;
+            border-radius: 15px;
+            font-size: 13px;
+            font-weight: bold;
+            display: inline-block;
+            margin-bottom: 25px;
+        }
+
+        .specialties {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 30px;
+            flex-wrap: wrap;
+        }
+
+        .spec-item {
+            font-size: 13px;
+            background: #f8f9fa;
+            padding: 8px 12px;
+            border-radius: 8px;
+            border: 1px solid #ddd;
+        }
+
+        .links-area {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            padding: 12px;
+            border-radius: 10px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: transform 0.2s;
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+        }
+
+        .btn-linkedin {
+            background-color: #0077b5;
+            color: white;
+        }
+
+        .btn-insta {
+            background: linear-gradient(45deg, #405de6, #5851db, #833ab4, #c13584, #e1306c, #fd1d1d);
+            color: white;
+        }
+
+        .qr-section {
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 1px dashed #ccc;
+        }
+
+        .qr-code {
+            width: 120px;
+            height: 120px;
+            margin-bottom: 10px;
+        }
+
+        .footer {
+            font-size: 11px;
+            color: #888;
+            margin-top: 10px;
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <div class="logo-box">
+            <img src="logo.png" alt="Blue Elephant Logo">
+        </div>
+
+        <h1>الفيل الأزرق | Blue Elephant</h1>
+        <div class="subtitle">General Supplies & B2B Solutions</div>
+        
+        <div class="cr-number">
+            سجل تجاري: 542-963-657 <i class="fas fa-file-contract"></i>
+        </div>
+
+        <div class="specialties">
+            <div class="spec-item"><i class="fas fa-pump-soap"></i> مستحضرات تجميل</div>
+            <div class="spec-item"><i class="fas fa-tree"></i> تمور فاخرة</div>
+            <div class="spec-item"><i class="fas fa-utensils"></i> زيتون</div>
+        </div>
+
+        <div class="links-area">
+            <a href="#" class="btn btn-linkedin" target="_blank">
+                <i class="fab fa-linkedin"></i> تابعنا على LinkedIn
+            </a>
+
+            <a href="https://www.instagram.com/belephant911?igsh=MXJnaGtwNHljbmZjYg==" class="btn btn-insta" target="_blank">
+                <i class="fab fa-instagram"></i> تابعنا على Instagram
+            </a>
+        </div>
+
+        <div class="qr-section">
+            <p style="font-size: 14px; color: #555; margin-bottom: 10px;">امسح الكود للتواصل معنا</p>
+            <img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://www.instagram.com/belephant911" alt="QR Code" class="qr-code">
+            <div class="footer">Blue Elephant © 2026</div>
+        </div>
+    </div>
+
+</body>
+</html>
